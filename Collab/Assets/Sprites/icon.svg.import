@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn45n3nv15f05"
-path="res://.godot/imported/playerGrey_up2.png-76cafb671f0e1d44cad7c07a05574883.ctex"
+uid="uid://c703kux43wbd0"
+path="res://.godot/imported/icon.svg-83420d79e222a133c7df0387f638b5fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/dodge_the_creeps_2d_assets/art/playerGrey_up2.png"
-dest_files=["res://.godot/imported/playerGrey_up2.png-76cafb671f0e1d44cad7c07a05574883.ctex"]
+source_file="res://Collab/Assets/Sprites/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-83420d79e222a133c7df0387f638b5fa.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
