@@ -125,10 +125,6 @@ shape = SubResource("RectangleShape2D_alt5j")
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1046246908]
 position_smoothing_enabled = true
 
-[node name="Panel" type="Panel" parent="Player" unique_id=1377248599]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Coins" type="Node2D" parent="." unique_id=2051164883]
 
 [node name="Coin1" parent="Coins" unique_id=1346076283 instance=ExtResource("3_qbkui")]
