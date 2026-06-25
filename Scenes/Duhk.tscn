@@ -2,7 +2,61 @@
 
 [ext_resource type="Script" uid="uid://bkgjfc8ln68d5" path="res://Collab/character_body_2d.gd" id="1_6lmjr"]
 [ext_resource type="Texture2D" uid="uid://dect0nr6rjh2i" path="res://Collab/Assets/Sprites/DancingDuck - Copy.png" id="1_alt5j"]
+[ext_resource type="Texture2D" uid="uid://bt586ix3v1is5" path="res://Collab/Assets/Sprites/Tilemaps/Airport tiles_Regular.png" id="1_sjdtb"]
 [ext_resource type="PackedScene" uid="uid://b3xgakj7ojby4" path="res://Scenes/coin____rename_later.tscn" id="3_qbkui"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4mro"]
+texture = ExtResource("1_sjdtb")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+0:0/0/z_index = -1
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:0/size_in_atlas = Vector2i(4, 4)
+4:0/0 = 0
+4:0/0/z_index = -1
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+8:0/size_in_atlas = Vector2i(4, 4)
+8:0/0 = 0
+8:0/0/z_index = -1
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+12:0/size_in_atlas = Vector2i(4, 4)
+12:0/0 = 0
+12:0/0/z_index = -1
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+16:0/size_in_atlas = Vector2i(4, 4)
+16:0/0 = 0
+16:0/0/z_index = -9
+20:0/size_in_atlas = Vector2i(4, 4)
+20:0/0 = 0
+20:0/0/z_index = -9
+24:0/size_in_atlas = Vector2i(4, 4)
+24:0/0 = 0
+24:0/0/z_index = -9
+28:0/size_in_atlas = Vector2i(4, 4)
+28:0/0 = 0
+28:0/0/z_index = -10
+32:0/size_in_atlas = Vector2i(4, 4)
+32:0/0 = 0
+32:0/0/z_index = -10
+36:0/size_in_atlas = Vector2i(4, 4)
+36:0/0 = 0
+36:0/0/z_index = -10
+40:0/size_in_atlas = Vector2i(4, 4)
+40:0/0 = 0
+40:0/0/z_index = -10
+44:0/size_in_atlas = Vector2i(4, 4)
+44:0/0 = 0
+44:0/0/z_index = -10
+48:0/size_in_atlas = Vector2i(4, 4)
+48:0/0 = 0
+48:0/0/z_index = -10
+52:0/size_in_atlas = Vector2i(4, 4)
+52:0/0 = 0
+52:0/0/z_index = -10
+
+[sub_resource type="TileSet" id="TileSet_dsan0"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_q4mro")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_alt5j"]
 atlas = ExtResource("1_alt5j")
@@ -48,12 +102,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alt5j"]
 size = Vector2(53, 50)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6lmjr"]
-
 [node name="Game" type="Node2D" unique_id=232668859]
 
+[node name="World1" type="TileMap" parent="." unique_id=247619929]
+tile_set = SubResource("TileSet_dsan0")
+format = 2
+layer_0/tile_data = PackedInt32Array(1638422, 0, 0, 1638426, 0, 0, 1638430, 0, 0, 1638434, 0, 0, 1638438, 0, 0, 1638442, 0, 0, 1638446, 0, 0, 1638450, 0, 0, 1638454, 0, 0, 1376274, 786432, 0, 1114130, 786432, 0, 851986, 786432, 0, 1638418, 786432, 0, 1376278, 3407872, 0, 1114134, 3407872, 0, 851990, 3407872, 0, 851994, 3407872, 0, 851998, 3407872, 0, 852002, 3407872, 0, 852006, 3407872, 0, 852010, 3407872, 0, 852014, 3407872, 0, 852018, 3407872, 0, 852022, 3407872, 0, 1114166, 3407872, 0, 1376310, 3407872, 0, 1376306, 3407872, 0, 1376303, 3407872, 0, 1376299, 1310720, 0, 1376298, 3407872, 0, 1376297, 3407872, 0, 1376296, 3407872, 0, 1376295, 1572864, 0, 1376294, 3407872, 0, 1376293, 3407872, 0, 1376292, 3407872, 0, 1376291, 1048576, 0, 1376290, 3407872, 0, 1376289, 3407872, 0, 1376288, 3407872, 0, 1376287, 3407872, 0, 1376286, 3407872, 0, 1376285, 3407872, 0, 1376284, 3407872, 0, 1376283, 3407872, 0, 1376282, 3407872, 0, 1310746, 3407872, 0, 1245210, 3407872, 0, 1245209, 3407872, 0, 1179673, 3407872, 0, 1114137, 3407872, 0, 1114138, 3407872, 0, 1114139, 3407872, 0, 1114140, 3407872, 0, 1114141, 3407872, 0, 1114142, 3407872, 0, 1114143, 3407872, 0, 1114144, 3407872, 0, 1114145, 3407872, 0, 1114146, 3407872, 0, 1114147, 3407872, 0, 1114148, 3407872, 0, 1114149, 3407872, 0, 1114150, 3407872, 0, 1114151, 3407872, 0, 1114152, 3407872, 0, 1114153, 3407872, 0, 1114154, 3407872, 0, 1114155, 3407872, 0, 1114156, 3407872, 0, 1114157, 3407872, 0, 1114158, 3407872, 0, 1114159, 3407872, 0, 1114160, 3407872, 0, 1114161, 3407872, 0, 1114162, 3407872, 0, 1048626, 3407872, 0, 1310758, 3407872, 0, 1310757, 3407872, 0, 1310756, 3407872, 0, 1310755, 3407872, 0, 1310754, 3407872, 0, 1310753, 3407872, 0, 1310752, 3407872, 0, 1310751, 3407872, 0, 1245221, 3407872, 0, 1245220, 3407872, 0, 1245219, 3407872, 0, 1245218, 3407872, 0, 1245217, 3407872, 0, 1245216, 3407872, 0, 1179682, 3407872, 0, 1179683, 3407872, 0, 1179684, 3407872, 0, 1179685, 3407872, 0)
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1561518963]
-position = Vector2(378, 247)
+position = Vector2(412, 249)
 script = ExtResource("1_6lmjr")
 metadata/_edit_group_ = true
 
@@ -66,13 +123,7 @@ position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_alt5j")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1046246908]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=791273198]
-position = Vector2(374, 367)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2127299401]
-shape = SubResource("WorldBoundaryShape2D_6lmjr")
+position_smoothing_enabled = true
 
 [node name="Coins" type="Node2D" parent="." unique_id=2051164883]
 
@@ -86,10 +137,14 @@ position = Vector2(537, 341)
 position = Vector2(489, 341)
 
 [node name="Coin4" parent="Coins" unique_id=671717701 instance=ExtResource("3_qbkui")]
-position = Vector2(737, 340)
+position = Vector2(748, 340)
 
 [node name="Coin5" parent="Coins" unique_id=294435093 instance=ExtResource("3_qbkui")]
 position = Vector2(660, 285)
 
 [node name="Coin6" parent="Coins" unique_id=384088624 instance=ExtResource("3_qbkui")]
 position = Vector2(596, 285)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1401249679]
+color = Color(1, 1, 1, 0)
+shadow_color = Color(0.48235294, 0, 0, 0)
