@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dwawdb04dxvy5"]
+
+[ext_resource type="Script" uid="uid://bkgjfc8ln68d5" path="res://Collab/character_body_2d.gd" id="1_6lmjr"]
+[ext_resource type="Texture2D" uid="uid://dect0nr6rjh2i" path="res://Collab/Assets/Sprites/DancingDuck - Copy.png" id="1_alt5j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alt5j"]
+atlas = ExtResource("1_alt5j")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lmjr"]
+atlas = ExtResource("1_alt5j")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qiy2"]
+atlas = ExtResource("1_alt5j")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6pfy"]
+atlas = ExtResource("1_alt5j")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cgqw0"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_alt5j")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6lmjr")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_8qiy2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_v6pfy")
+}],
+"loop": true,
+"name": &"DuckWalk",
+"speed": 4.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alt5j"]
+size = Vector2(53, 50)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6lmjr"]
+
+[node name="Node2D" type="Node2D" unique_id=232668859]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1561518963]
+position = Vector2(378, 247)
+script = ExtResource("1_6lmjr")
+metadata/_edit_group_ = true
+
+[node name="PlayerAnims" type="AnimatedSprite2D" parent="Player" unique_id=1909182590]
+sprite_frames = SubResource("SpriteFrames_cgqw0")
+animation = &"DuckWalk"
+
+[node name="PlayerHitBox" type="CollisionShape2D" parent="Player" unique_id=1860647598]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_alt5j")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=791273198]
+position = Vector2(374, 367)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2127299401]
+shape = SubResource("WorldBoundaryShape2D_6lmjr")
