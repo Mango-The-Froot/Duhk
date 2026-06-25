@@ -111,6 +111,7 @@ layer_0/tile_data = PackedInt32Array(1703937, 0, 0, 1703941, 0, 0, 1703945, 0, 0
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1561518963]
 position = Vector2(119, 330)
+position = Vector2(119, 330)
 script = ExtResource("1_6lmjr")
 metadata/_edit_group_ = true
 
