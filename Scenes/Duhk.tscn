@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cv28ldnnaejbv"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://bkgjfc8ln68d5" path="res://Collab/character_body_2d.gd" id="1_6lmjr"]
 [ext_resource type="Texture2D" uid="uid://dect0nr6rjh2i" path="res://Collab/Assets/Sprites/DancingDuck - Copy.png" id="1_alt5j"]
 [ext_resource type="Texture2D" uid="uid://bt586ix3v1is5" path="res://Collab/Assets/Sprites/Tilemaps/Airport tiles_Regular.png" id="1_sjdtb"]
@@ -149,3 +150,21 @@ position = Vector2(596, 285)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1401249679]
 color = Color(1, 1, 1, 0)
 shadow_color = Color(0.48235294, 0, 0, 0)
+=======
+[ext_resource type="Script" uid="uid://coel5q7smfn6x" path="res://Scenes/healthbar.gd" id="1_ixusf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6em6y"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixusf"]
+bg_color = Color(0.87860656, 0.27028853, 0.28480396, 1)
+
+[node name="ProgressBar2" type="ProgressBar" unique_id=1595130101]
+offset_right = 240.0
+offset_bottom = 4.0
+theme_override_styles/background = SubResource("StyleBoxFlat_6em6y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ixusf")
+value = 60.0
+show_percentage = false
+script = ExtResource("1_ixusf")
+>>>>>>> Player
