@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dect0nr6rjh2i" path="res://Collab/Assets/Sprites/DancingDuck - Copy.png" id="1_alt5j"]
 [ext_resource type="Texture2D" uid="uid://bt586ix3v1is5" path="res://Collab/Assets/Sprites/Tilemaps/Airport tiles_Regular.png" id="1_sjdtb"]
 [ext_resource type="PackedScene" uid="uid://b3xgakj7ojby4" path="res://Scenes/coin____rename_later.tscn" id="3_qbkui"]
+[ext_resource type="PackedScene" uid="uid://cu3tjhig4vwvq" path="res://Scenes/Healthbar.tscn" id="4_q4mro"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4mro"]
 texture = ExtResource("1_sjdtb")
@@ -124,6 +125,10 @@ shape = SubResource("RectangleShape2D_alt5j")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1046246908]
 position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=1729037927]
+
+[node name="HealthBar" parent="Player/CanvasLayer" unique_id=331439400 instance=ExtResource("4_q4mro")]
 
 [node name="Coins" type="Node2D" parent="." unique_id=2051164883]
 
