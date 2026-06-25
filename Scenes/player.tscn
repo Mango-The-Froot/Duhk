@@ -1,8 +1,4 @@
-<<<<<<< HEAD:Scenes/player.tscn
 [gd_scene format=3 uid="uid://dibyirtcap6js"]
-=======
-[gd_scene format=3 uid="uid://cbbi8xth8dc3r"]
->>>>>>> Player:Collab/Duhk.tscn
 
 [ext_resource type="Script" uid="uid://bkgjfc8ln68d5" path="res://Collab/character_body_2d.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dect0nr6rjh2i" path="res://Collab/Assets/Sprites/DancingDuck - Copy.png" id="2_6t5aa"]
