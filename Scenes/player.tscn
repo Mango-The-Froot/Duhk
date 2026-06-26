@@ -45,9 +45,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alt5j"]
-size = Vector2(53, 50)
+size = Vector2(37, 50)
 
 [node name="Player" type="CharacterBody2D" unique_id=2101930580]
+position = Vector2(2, -9)
 script = ExtResource("1_cvnsp")
 metadata/_edit_group_ = true
 
@@ -56,5 +57,5 @@ sprite_frames = SubResource("SpriteFrames_cgqw0")
 animation = &"DuckWalk"
 
 [node name="PlayerHitBox" type="CollisionShape2D" parent="." unique_id=1322212372]
-position = Vector2(0.5, 3)
+position = Vector2(2.5, 3)
 shape = SubResource("RectangleShape2D_alt5j")
