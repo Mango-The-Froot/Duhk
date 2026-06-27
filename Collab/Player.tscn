@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwawdb04dxvy5"]
 
-[ext_resource type="Script" uid="uid://bkgjfc8ln68d5" path="res://Collab/character_body_2d.gd" id="1_5jj17"]
+[ext_resource type="Script" uid="uid://bkgjfc8ln68d5" path="res://Collab/Scenes/character_body_2d.gd" id="1_5jj17"]
 [ext_resource type="Texture2D" uid="uid://dect0nr6rjh2i" path="res://Collab/Assets/Sprites/DancingDuck - Copy.png" id="2_bbctl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_alt5j"]

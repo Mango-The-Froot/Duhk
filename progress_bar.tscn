@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://4qup40xukj5p"]
+
+[ext_resource type="Script" uid="uid://c2osa2on1be5g" path="res://Collab/Scenes/health_bar.gd" id="1_chwcf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25q3q"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s5sm"]
+bg_color = Color(0.9351143, 0, 0.15629926, 1)
+
+[node name="ProgressBar" type="ProgressBar" unique_id=331439400]
+offset_right = 240.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_25q3q")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2s5sm")
+value = 60.0
+show_percentage = false
+script = ExtResource("1_chwcf")

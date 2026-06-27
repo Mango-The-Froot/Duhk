@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cu3tjhig4vwvq"]
+[gd_scene format=3 uid="uid://dibyirtcap6js"]
 
-[ext_resource type="Script" uid="uid://c2osa2on1be5g" path="res://Scenes/health_bar.gd" id="1_1f0m8"]
+[ext_resource type="Script" uid="uid://c2osa2on1be5g" path="res://Collab/Scenes/health_bar.gd" id="1_v0iea"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25q3q"]
 bg_color = Color(1, 1, 1, 1)
@@ -15,4 +15,4 @@ theme_override_styles/background = SubResource("StyleBoxFlat_25q3q")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2s5sm")
 value = 60.0
 show_percentage = false
-script = ExtResource("1_1f0m8")
+script = ExtResource("1_v0iea")
