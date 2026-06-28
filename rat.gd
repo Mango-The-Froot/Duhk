@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var animation = $AnimatedSprite2D
+@onready var sprite = $AnimatedSprite2D
 
 const range = 10
 const speed = 3
@@ -10,6 +12,13 @@ const gravity = 20
 
 func _physics_process(delta: float) -> void:
 	counter += 1
+	
+	if direction > 0:
+		sprite.flip_h = true
+	if direction < 0:
+		sprite.flip_h = false
+	
+	animation.play("default")
 	
 	if(currentDist < range):
 		position.x += speed * direction
