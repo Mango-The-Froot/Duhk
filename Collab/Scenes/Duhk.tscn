@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dip52lrjn0f44" path="res://Collab/Assets/Sprites/Tilemaps/SewerTiles.png" id="2_0x0dq"]
 [ext_resource type="PackedScene" uid="uid://b3xgakj7ojby4" path="res://Collab/Scenes/coin____rename_later.tscn" id="3_qbkui"]
 [ext_resource type="PackedScene" uid="uid://cu3tjhig4vwvq" path="res://Collab/Scenes/HealthBar.tscn" id="4_q4mro"]
+[ext_resource type="PackedScene" uid="uid://cj2kspo4t0gh2" path="res://Collab/Scenes/rat.tscn" id="7_72pde"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4mro"]
 texture = ExtResource("1_sjdtb")
@@ -181,7 +182,7 @@ layer_2/name = "Layer2"
 layer_2/tile_data = PackedInt32Array(1703938, 524289, 8, 3276802, 1, 8, 4063246, 786433, 4, 4063254, 262145, 8)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1561518963]
-position = Vector2(461, 255)
+position = Vector2(459, 255)
 script = ExtResource("1_6lmjr")
 metadata/_edit_group_ = true
 
@@ -241,3 +242,6 @@ position = Vector2(240, 1002)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1401249679]
 color = Color(1, 1, 1, 0)
 shadow_color = Color(0.48235294, 0, 0, 0)
+
+[node name="Rat" parent="." unique_id=1358586519 instance=ExtResource("7_72pde")]
+position = Vector2(553, 986)
