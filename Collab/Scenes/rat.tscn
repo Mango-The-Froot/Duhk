@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cj2kspo4t0gh2"]
+
+[ext_resource type="Script" uid="uid://dpdpxthtyns6o" path="res://rat.gd" id="1_r77tc"]
+[ext_resource type="Texture2D" uid="uid://dc4biayh0f3sg" path="res://Collab/Assets/Sprites/RAT_RUNNING.png" id="2_u7ovg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaikp"]
+atlas = ExtResource("2_u7ovg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiaum"]
+atlas = ExtResource("2_u7ovg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j1ng"]
+atlas = ExtResource("2_u7ovg")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e813m"]
+atlas = ExtResource("2_u7ovg")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cbis5"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_uaikp")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tiaum")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_5j1ng")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_e813m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv5hn"]
+size = Vector2(62, 23)
+
+[node name="Rat" type="Node2D" unique_id=1358586519]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1663872543]
+script = ExtResource("1_r77tc")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1836821039]
+sprite_frames = SubResource("SpriteFrames_cbis5")
+frame = 2
+frame_progress = 0.7659791
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1006462704]
+position = Vector2(0, 20.5)
+shape = SubResource("RectangleShape2D_fv5hn")

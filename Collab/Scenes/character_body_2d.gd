@@ -27,7 +27,7 @@ var canGlide = false
 
 func _ready():
 	health = 6
-	healthBar.init_health(health)
+	#healthBar.init_health(health)
 
 func _physics_process(delta: float) -> void:
 	if velocity.x > 0:
