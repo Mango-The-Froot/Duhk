@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 var gravity = 20
+var health
+var isAlive = true
 
 var hasDash = true
 var tween: Tween
@@ -19,8 +21,13 @@ var maxFeathers = 1
 var hasGlide = false
 var canGlide = false
 
+@onready var healthBar = $CanvasLayer/HealthBar
 @onready var playerSprite = $PlayerAnims
 @onready var animate = $PlayerAnims
+
+func _ready():
+	health = 6
+	#healthBar.init_health(health)
 
 func _physics_process(delta: float) -> void:
 	if velocity.x > 0:
@@ -81,3 +88,7 @@ func movement():
 	if is_on_floor() && feathers == 0:
 		feathers = maxFeathers
 	move_and_slide()
+
+#Handels changes to the health bar
+func _set_health(value):
+	healthBar._set_health(value)

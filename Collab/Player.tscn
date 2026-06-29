@@ -1,22 +1,22 @@
-[gd_scene format=3 uid="uid://dibyirtcap6js"]
+[gd_scene format=3 uid="uid://dwawdb04dxvy5"]
 
-[ext_resource type="Script" uid="uid://bkgjfc8ln68d5" path="res://Collab/character_body_2d.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://dect0nr6rjh2i" path="res://Collab/Assets/Sprites/DancingDuck - Copy.png" id="2_6t5aa"]
+[ext_resource type="Script" uid="uid://bkgjfc8ln68d5" path="res://Collab/Scenes/character_body_2d.gd" id="1_5jj17"]
+[ext_resource type="Texture2D" uid="uid://dect0nr6rjh2i" path="res://Collab/Assets/Sprites/DancingDuck - Copy.png" id="2_bbctl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_alt5j"]
-atlas = ExtResource("2_6t5aa")
+atlas = ExtResource("2_bbctl")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6lmjr"]
-atlas = ExtResource("2_6t5aa")
+atlas = ExtResource("2_bbctl")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qiy2"]
-atlas = ExtResource("2_6t5aa")
+atlas = ExtResource("2_bbctl")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6pfy"]
-atlas = ExtResource("2_6t5aa")
+atlas = ExtResource("2_bbctl")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cgqw0"]
@@ -45,17 +45,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alt5j"]
-size = Vector2(37, 50)
+size = Vector2(53, 50)
 
-[node name="Player" type="CharacterBody2D" unique_id=2101930580]
-position = Vector2(2, -9)
-script = ExtResource("1_cvnsp")
+[node name="Player" type="Node2D" unique_id=232668859]
+
+[node name="PlayerCharBody" type="CharacterBody2D" parent="." unique_id=1561518963]
+position = Vector2(378, 247)
+script = ExtResource("1_5jj17")
 metadata/_edit_group_ = true
 
-[node name="PlayerAnims" type="AnimatedSprite2D" parent="." unique_id=1861425413]
+[node name="PlayerAnims" type="AnimatedSprite2D" parent="PlayerCharBody" unique_id=1909182590]
 sprite_frames = SubResource("SpriteFrames_cgqw0")
 animation = &"DuckWalk"
 
-[node name="PlayerHitBox" type="CollisionShape2D" parent="." unique_id=1322212372]
-position = Vector2(2.5, 3)
+[node name="PlayerHitBox" type="CollisionShape2D" parent="PlayerCharBody" unique_id=1860647598]
+position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_alt5j")
