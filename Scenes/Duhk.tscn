@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cv28ldnnaejbv"]
+[gd_scene format=3 uid="uid://rdubhbmxvy8k"]
 
 [ext_resource type="Script" uid="uid://bkgjfc8ln68d5" path="res://Collab/character_body_2d.gd" id="1_6lmjr"]
 [ext_resource type="Texture2D" uid="uid://dect0nr6rjh2i" path="res://Collab/Assets/Sprites/DancingDuck - Copy.png" id="1_alt5j"]
