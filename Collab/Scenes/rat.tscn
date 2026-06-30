@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpdpxthtyns6o" path="res://rat.gd" id="1_r77tc"]
 [ext_resource type="Texture2D" uid="uid://dc4biayh0f3sg" path="res://Collab/Assets/Sprites/RAT_RUNNING.png" id="2_u7ovg"]
+[ext_resource type="PackedScene" uid="uid://cu3tjhig4vwvq" path="res://Collab/Scenes/HealthBar.tscn" id="3_u7ovg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uaikp"]
 atlas = ExtResource("2_u7ovg")
@@ -57,5 +58,7 @@ shape = SubResource("RectangleShape2D_fv5hn")
 
 [node name="Direction" type="Timer" parent="." unique_id=1286040095]
 autostart = true
+
+[node name="healthBar" parent="." unique_id=331439400 instance=ExtResource("3_u7ovg")]
 
 [connection signal="timeout" from="Direction" to="." method="_on_direction_timeout"]

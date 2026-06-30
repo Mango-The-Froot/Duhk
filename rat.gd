@@ -7,7 +7,7 @@ class_name RatEnemy
 const speed = 100
 var chasing: bool = false
 
-var health = 20
+var health
 var healthMax = 20
 var healthMin = 0
 
@@ -20,6 +20,9 @@ var dir: Vector2
 const gravity = 20
 var kBForce = 100
 var roaming: bool = true
+
+func _ready():
+	health = 20
 
 func _process(delta):
 	sprite.play("default")
@@ -50,3 +53,6 @@ func _on_direction_timeout():
 func choose(array):
 	array.shuffle()
 	return array.front()
+
+func _set_health(value):
+	$healthBar._set_health(value)

@@ -91,6 +91,7 @@ func movement():
 	#Resets air jumps once touching ground
 	if is_on_floor() && feathers == 0:
 		feathers = maxFeathers
+		coyoteTime = 30
 	move_and_slide()
 
 #Handels changes to the health bar

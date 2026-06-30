@@ -270,3 +270,6 @@ position = Vector2(644, 341)
 
 [node name="checkPoint" parent="." unique_id=1405259099 instance=ExtResource("9_pndye")]
 position = Vector2(-32, 2175)
+
+[node name="SewerRat" parent="." unique_id=1663872543 instance=ExtResource("7_72pde")]
+position = Vector2(445, 187)
