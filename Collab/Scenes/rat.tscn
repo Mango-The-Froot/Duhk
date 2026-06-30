@@ -42,17 +42,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv5hn"]
 size = Vector2(62, 23)
 
-[node name="Rat" type="Node2D" unique_id=1358586519]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1663872543]
+[node name="SewerRat" type="CharacterBody2D" unique_id=1663872543]
 script = ExtResource("1_r77tc")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1836821039]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1836821039]
 sprite_frames = SubResource("SpriteFrames_cbis5")
 frame = 2
 frame_progress = 0.7659791
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1006462704]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1006462704]
 position = Vector2(0, 20.5)
 shape = SubResource("RectangleShape2D_fv5hn")
+
+[node name="Direction" type="Timer" parent="." unique_id=1286040095]
+
+[connection signal="timeout" from="Direction" to="." method="_on_direction_timeout"]

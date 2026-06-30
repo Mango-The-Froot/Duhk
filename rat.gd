@@ -1,33 +1,28 @@
 extends CharacterBody2D
 
-@onready var animation = $AnimatedSprite2D
-@onready var sprite = $AnimatedSprite2D
+class_name RatEnemy
 
-const range = 10
-const speed = 3
-var currentDist = 0
-var direction = 1
-var counter = 0
+const speed = 10
+var chasing: bool
+
+var health = 20
+var healthMax = 20
+var healthMin = 0
+
+var dead: bool = false
+var damaged: bool = false
+var attack = 2
+var attacking: bool = false
+
+var dir: Vector2
 const gravity = 20
+var kBForce = 100
+var roaming: bool = true
 
-func _physics_process(delta: float) -> void:
-	counter += 1
-	
-	if direction > 0:
-		sprite.flip_h = true
-	if direction < 0:
-		sprite.flip_h = false
-	
-	animation.play("default")
-	
-	if(currentDist < range):
-		position.x += speed * direction
-		if(counter % 20 == 0):
-			currentDist += range / speed
-	elif(currentDist >= range):
-		direction *= -1
-		currentDist = 0
-	if !is_on_floor():
-		velocity.y += gravity
 
-	move_and_slide()
+func _on_direction_timeout() -> void:
+	$Direction.wait_time = choose([1.5,2.0,2.5])
+	
+func choose(array):
+	array.shuffle()
+	return array.front()
