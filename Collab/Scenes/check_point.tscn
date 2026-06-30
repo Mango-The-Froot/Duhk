@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://rg52jobwesxm"]
+
+[ext_resource type="Texture2D" uid="uid://rvh6uhvyafdb" path="res://Collab/Assets/Sprites/TrashCan (1).png" id="1_bbutc"]
+
+[node name="checkPoint" type="Node2D" unique_id=1405259099]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=504371468]
+z_index = -2
+texture = ExtResource("1_bbutc")
+
+[node name="Label" type="Label" parent="." unique_id=1565272603]
+offset_left = -70.0
+offset_top = -11.0
+offset_right = 71.0
+offset_bottom = 12.0
+text = "Press E to Interact"
+vertical_alignment = 3
