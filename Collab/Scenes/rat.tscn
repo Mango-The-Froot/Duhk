@@ -56,5 +56,6 @@ position = Vector2(0, 20.5)
 shape = SubResource("RectangleShape2D_fv5hn")
 
 [node name="Direction" type="Timer" parent="." unique_id=1286040095]
+autostart = true
 
 [connection signal="timeout" from="Direction" to="." method="_on_direction_timeout"]
