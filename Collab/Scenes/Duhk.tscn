@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://btrnj1de0mcld" path="res://Collab/Assets/Sprites/Tilemaps/SlopedTiles.png" id="3_sd00l"]
 [ext_resource type="PackedScene" uid="uid://cu3tjhig4vwvq" path="res://Collab/Scenes/HealthBar.tscn" id="4_q4mro"]
 [ext_resource type="PackedScene" uid="uid://cj2kspo4t0gh2" path="res://Collab/Scenes/rat.tscn" id="7_72pde"]
-[ext_resource type="PackedScene" uid="uid://dgkbqx0bb0twb" path="res://Collab/Scenes/check_point.tscn" id="9_pndye"]
+[ext_resource type="PackedScene" uid="uid://rg52jobwesxm" path="res://Collab/Scenes/check_point.tscn" id="9_pndye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4mro"]
 texture = ExtResource("1_sjdtb")
@@ -251,6 +251,15 @@ position = Vector2(612, 1002)
 
 [node name="Coin9" parent="Coins" unique_id=854564262 instance=ExtResource("3_qbkui")]
 position = Vector2(240, 1002)
+
+[node name="Coin13" parent="Coins" unique_id=1218391867 instance=ExtResource("3_qbkui")]
+position = Vector2(103, 2116)
+
+[node name="Coin14" parent="Coins" unique_id=2082901283 instance=ExtResource("3_qbkui")]
+position = Vector2(195, 2116)
+
+[node name="Coin15" parent="Coins" unique_id=730819700 instance=ExtResource("3_qbkui")]
+position = Vector2(298, 2116)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1401249679]
 color = Color(1, 1, 1, 0)
