@@ -22,9 +22,11 @@ animations = [{
 radius = 16.0
 
 [node name="Coin" type="Area2D" unique_id=671717701]
+position = Vector2(368, 434)
 script = ExtResource("1_hpe1q")
 
 [node name="Coin __ rename later" type="AnimatedSprite2D" parent="." unique_id=1143023934]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_puafi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2042454644]

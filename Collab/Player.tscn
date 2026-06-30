@@ -48,6 +48,8 @@ animations = [{
 size = Vector2(53, 50)
 
 [node name="Player" type="Node2D" unique_id=232668859]
+texture_filter = 1
+position = Vector2(-1, 4)
 
 [node name="PlayerCharBody" type="CharacterBody2D" parent="." unique_id=1561518963]
 position = Vector2(378, 247)
