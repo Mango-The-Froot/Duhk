@@ -20,6 +20,8 @@ var maxFeathers = 1
 var hasGlide = false
 var canGlide = false
 
+var coyoteTime = 0 
+
 @onready var healthBar = $CanvasLayer/HealthBar
 @onready var playerSprite = $PlayerAnims
 @onready var animate = $PlayerAnims
@@ -55,9 +57,12 @@ func movement():
 	# Add the gravity.
 	if !is_on_floor():
 		velocity.y += gravity
+		coyoteTime -= 1
+	if is_on_floor():
+		coyoteTime = 30
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") && is_on_floor():
+	if Input.is_action_just_pressed("Jump") && (is_on_floor() || coyoteTime > 0):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
