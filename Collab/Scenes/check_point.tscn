@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgkbqx0bb0twb"]
 
-[ext_resource type="Texture2D" path="res://Collab/Assets/Sprites/TrashCan (1).png" id="1_bbutc"]
+[ext_resource type="Texture2D" uid="uid://cbxctdaches74" path="res://Collab/Assets/TrashCan (1).png" id="1_bbutc"]
 
 [node name="checkPoint" type="Node2D" unique_id=1405259099]
 
