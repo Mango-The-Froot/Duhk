@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://btrnj1de0mcld" path="res://Collab/Assets/Sprites/Tilemaps/SlopedTiles.png" id="3_sd00l"]
 [ext_resource type="PackedScene" uid="uid://cu3tjhig4vwvq" path="res://Collab/Scenes/HealthBar.tscn" id="4_q4mro"]
 [ext_resource type="PackedScene" uid="uid://cj2kspo4t0gh2" path="res://Collab/Scenes/rat.tscn" id="7_72pde"]
+[ext_resource type="PackedScene" uid="uid://myow3mepvmi" path="res://Collab/Scenes/coin_counter.tscn" id="7_acv23"]
 [ext_resource type="PackedScene" uid="uid://dgkbqx0bb0twb" path="res://Collab/Scenes/check_point.tscn" id="9_pndye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4mro"]
@@ -214,6 +215,10 @@ position_smoothing_enabled = true
 
 [node name="HealthBar" parent="Player/CanvasLayer" unique_id=331439400 instance=ExtResource("4_q4mro")]
 
+[node name="CoinCounter" parent="Player/CanvasLayer" unique_id=1468149157 instance=ExtResource("7_acv23")]
+offset_top = 25.0
+offset_bottom = 25.0
+
 [node name="Coins" type="Node2D" parent="." unique_id=2051164883]
 
 [node name="Coin1" parent="Coins" unique_id=1346076283 instance=ExtResource("3_qbkui")]
@@ -261,12 +266,10 @@ position = Vector2(195, 2116)
 [node name="Coin15" parent="Coins" unique_id=730819700 instance=ExtResource("3_qbkui")]
 position = Vector2(298, 2116)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1401249679]
-color = Color(1, 1, 1, 0)
-shadow_color = Color(0.48235294, 0, 0, 0)
+[node name="Enemies" type="Node2D" parent="." unique_id=1124605752]
 
-[node name="Rat" parent="." unique_id=1358586519 instance=ExtResource("7_72pde")]
-position = Vector2(644, 341)
+[node name="Rat" parent="Enemies" unique_id=1358586519 instance=ExtResource("7_72pde")]
+position = Vector2(282, 816)
 
 [node name="checkPoint" parent="." unique_id=1405259099 instance=ExtResource("9_pndye")]
 position = Vector2(-32, 2175)
