@@ -20,12 +20,12 @@ var maxFeathers = 1
 var hasGlide = false
 var canGlide = false
 
-var coyoteTime = 0 
 var canTakeDamage = true
 
 @onready var healthBar = $CanvasLayer/HealthBar
 @onready var playerSprite = $PlayerAnims
 @onready var animate = $PlayerAnims
+@onready var coyoteTime = $CoyoteTime
 
 func _ready():
 	GlobalVar.playerBody = self
@@ -63,12 +63,9 @@ func movement():
 	# Add the gravity.
 	if !is_on_floor():
 		velocity.y += gravity
-		coyoteTime -= 1
-	if is_on_floor():
-		coyoteTime = 30
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") && (is_on_floor() || coyoteTime > 0):
+	if Input.is_action_just_pressed("Jump") && is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -93,11 +90,11 @@ func movement():
 			if feathers >= 1:
 				velocity.y = JUMP_VELOCITY
 				feathers -= 1
+				
 	
 	#Resets air jumps once touching ground
 	if is_on_floor() && feathers == 0:
 		feathers = maxFeathers
-		coyoteTime = 30
 	checkHitbox()
 	move_and_slide()
 
