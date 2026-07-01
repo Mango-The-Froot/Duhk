@@ -9,5 +9,5 @@ func _set_health(new_health):
 
 func init_health(_health):
 	health = _health
-	max_value = health
-	value = health
+	max_value = _health
+	value = _health

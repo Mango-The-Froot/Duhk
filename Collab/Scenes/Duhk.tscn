@@ -217,6 +217,7 @@ position_smoothing_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=1729037927]
 
 [node name="HealthBar" parent="Player/CanvasLayer" unique_id=331439400 instance=ExtResource("4_q4mro")]
+value = 100.0
 
 [node name="CoinCounter" parent="Player/CanvasLayer" unique_id=1468149157 instance=ExtResource("7_acv23")]
 offset_top = 25.0

@@ -21,7 +21,7 @@ var hasGlide = false
 var canGlide = false
 
 var coyoteTime = 0 
-var canTakeDamage: bool
+var canTakeDamage = true
 
 @onready var healthBar = $CanvasLayer/HealthBar
 @onready var playerSprite = $PlayerAnims
@@ -30,6 +30,7 @@ var canTakeDamage: bool
 func _ready():
 	GlobalVar.playerBody = self
 	health = 60
+	healthBar.init_health(health)
 	#healthBar.init_health(health)
 
 func _physics_process(delta: float) -> void:
@@ -120,6 +121,7 @@ func takeDamage(damage):
 		if health > 0:
 			health -= damage
 			print("player health: ", health)
+			_set_health(health)
 			takeDamageCD(1.0)
 
 #Handels changes to the health bar
