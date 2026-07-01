@@ -21,6 +21,21 @@ region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cbis5"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_uaikp")
@@ -35,21 +50,25 @@ animations = [{
 "texture": SubResource("AtlasTexture_e813m")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Walk",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv5hn"]
 size = Vector2(62, 23)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r77tc"]
+size = Vector2(66, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ovg"]
+size = Vector2(70, 29)
+
 [node name="SewerRat" type="CharacterBody2D" unique_id=1663872543]
 script = ExtResource("1_r77tc")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1836821039]
 sprite_frames = SubResource("SpriteFrames_cbis5")
-frame = 2
-frame_progress = 0.7659791
+animation = &"Attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1006462704]
 position = Vector2(0, 20.5)
@@ -58,4 +77,18 @@ shape = SubResource("RectangleShape2D_fv5hn")
 [node name="Direction" type="Timer" parent="." unique_id=1286040095]
 autostart = true
 
+[node name="RatHitBox" type="Area2D" parent="." unique_id=1117132369]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RatHitBox" unique_id=1490512627]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_r77tc")
+
+[node name="ratDamageZone" type="Area2D" parent="." unique_id=1029089100]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ratDamageZone" unique_id=224046061]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_u7ovg")
+
 [connection signal="timeout" from="Direction" to="." method="_on_direction_timeout"]
+[connection signal="area_entered" from="RatHitBox" to="." method="_on_rat_hit_box_area_entered"]
+[connection signal="area_entered" from="ratDamageZone" to="." method="_on_rat_damage_zone_area_entered"]

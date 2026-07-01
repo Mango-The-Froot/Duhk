@@ -27,10 +27,14 @@ var coyoteTime = 0
 @onready var animate = $PlayerAnims
 
 func _ready():
-	health = 6
+	GlobalVar.playerBody = self
+	health = 60
 	#healthBar.init_health(health)
 
 func _physics_process(delta: float) -> void:
+	#GlobalVar.playerDamageZone = damageZone
+	GlobalVar.playerHitbox = $PlayerHitBox
+	
 	if velocity.x > 0:
 		playerSprite.flip_h = true
 	if velocity.x < 0:
@@ -92,7 +96,24 @@ func movement():
 	if is_on_floor() && feathers == 0:
 		feathers = maxFeathers
 		coyoteTime = 30
+	checkHitbox()
 	move_and_slide()
+
+func checkHitbox():
+	var hitboxAreas = $PlayerHitBox.get_overlapping_areas()
+	var damage: int
+	if hitboxAreas:
+		var hitbox = hitboxAreas.front()
+		if hitbox.get_parent() is RatEnemy:
+			damage = GlobalVar.ratDamage
+		takeDamage(damage)
+
+func takeDamage(damage):
+	if damage != 0:
+		if health > 0:
+			health -= damage
+			print("player health: ", health)
+			takeDamageCD(1.0)
 
 #Handels changes to the health bar
 func _set_health(value):

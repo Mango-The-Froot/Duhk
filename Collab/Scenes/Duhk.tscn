@@ -183,6 +183,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alt5j"]
 size = Vector2(36, 50)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acv23"]
+size = Vector2(43, 56)
+
 [node name="Game" type="Node2D" unique_id=232668859]
 
 [node name="World1" type="TileMap" parent="." unique_id=247619929]
@@ -196,7 +199,7 @@ layer_2/name = "Layer2"
 layer_2/tile_data = PackedInt32Array(1703938, 524289, 8, 3276802, 1, 8, 4063246, 786433, 4, 4063254, 262145, 8, 11272240, 786433, 4, 11796512, 262145, 8, 12124198, 786433, 4, 12124206, 262145, 8, 13107237, 524289, 8, 12845100, 786433, 4, 8912928, 262145, 8, 12582964, 786433, 4, 9502772, 786433, 4, 9371740, 524289, 8, 10944604, 1, 8, 12255316, 524289, 8, 13303928, 262145, 8, 9699448, 786433, 4, 9961588, 786433, 4, 9961603, 786433, 4, 9961611, 262145, 8, 9699464, 262145, 8, 9961596, 262145, 8, 9437300, 262145, 8, 10223769, 786433, 4, 10223781, 262145, 8, 10617003, 262145, 8, 13041806, 786433, 4, 13041814, 262145, 8, 11731036, 786433, 4, 10879161, 786433, 4, 10617063, 786433, 4, 11469065, 786433, 4, 10879173, 262145, 8, 10617075, 262145, 8, 11469077, 262145, 8, 10289442, 524289, 8, 11075874, 1, 8, 9699592, 1, 8, 10354890, 786433, 4, 10354898, 262145, 8)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1561518963]
-position = Vector2(3000, 2459)
+position = Vector2(-102, 848)
 script = ExtResource("1_6lmjr")
 metadata/_edit_group_ = true
 
@@ -204,7 +207,7 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_cgqw0")
 animation = &"DuckWalk"
 
-[node name="PlayerHitBox" type="CollisionShape2D" parent="Player" unique_id=1860647598]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1860647598]
 position = Vector2(-2, 3)
 shape = SubResource("RectangleShape2D_alt5j")
 
@@ -218,6 +221,14 @@ position_smoothing_enabled = true
 [node name="CoinCounter" parent="Player/CanvasLayer" unique_id=1468149157 instance=ExtResource("7_acv23")]
 offset_top = 25.0
 offset_bottom = 25.0
+
+[node name="playerDamageZone" type="Area2D" parent="Player" unique_id=978279074]
+
+[node name="PlayerHitBox" type="Area2D" parent="Player" unique_id=707721267]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerHitBox" unique_id=1744629641]
+position = Vector2(-2.5, 3)
+shape = SubResource("RectangleShape2D_acv23")
 
 [node name="Coins" type="Node2D" parent="." unique_id=2051164883]
 
