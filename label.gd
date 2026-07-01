@@ -8,4 +8,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.text = "$" + str($"/root/GlobalData".money)
+	self.text = "$" + str($"/root/GlobalVar".money)

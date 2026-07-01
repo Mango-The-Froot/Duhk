@@ -17,7 +17,8 @@ config/icon="res://Collab/Assets/Sprites/icon.svg"
 
 [autoload]
 
-GlobalData="*uid://ku73ipupqv1"
+GlobalData="uid://ku73ipupqv1"
+GlobalVar="*uid://d4ne0bqb02gsu"
 
 [display]
 
