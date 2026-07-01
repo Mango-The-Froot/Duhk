@@ -21,6 +21,7 @@ var hasGlide = false
 var canGlide = false
 
 var coyoteTime = 0 
+var canTakeDamage: bool
 
 @onready var healthBar = $CanvasLayer/HealthBar
 @onready var playerSprite = $PlayerAnims
@@ -106,7 +107,13 @@ func checkHitbox():
 		var hitbox = hitboxAreas.front()
 		if hitbox.get_parent() is RatEnemy:
 			damage = GlobalVar.ratDamage
-		takeDamage(damage)
+		if canTakeDamage:
+			takeDamage(damage)
+
+func takeDamageCD(cooldown):
+	canTakeDamage = false
+	await get_tree().create_timer(cooldown).timeout
+	canTakeDamage = true
 
 func takeDamage(damage):
 	if damage != 0:
