@@ -15,10 +15,6 @@ run/main_scene="uid://cv28ldnnaejbv"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Collab/Assets/Sprites/icon.svg"
 
-[autoload]
-
-GlobalVar="*uid://ku73ipupqv1"
-
 [display]
 
 window/size/viewport_width=1180
