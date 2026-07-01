@@ -266,11 +266,9 @@ position = Vector2(195, 2116)
 [node name="Coin15" parent="Coins" unique_id=730819700 instance=ExtResource("3_qbkui")]
 position = Vector2(298, 2116)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1401249679]
-color = Color(1, 1, 1, 0)
-shadow_color = Color(0.48235294, 0, 0, 0)
+[node name="Enemies" type="Node2D" parent="." unique_id=1124605752]
 
-[node name="Rat" parent="." unique_id=1358586519 instance=ExtResource("7_72pde")]
+[node name="Rat" parent="Enemies" unique_id=1358586519 instance=ExtResource("7_72pde")]
 position = Vector2(282, 816)
 
 [node name="checkPoint" parent="." unique_id=1405259099 instance=ExtResource("9_pndye")]
