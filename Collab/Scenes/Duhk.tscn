@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://btrnj1de0mcld" path="res://Collab/Assets/Sprites/Tilemaps/SlopedTiles.png" id="3_sd00l"]
 [ext_resource type="PackedScene" uid="uid://cu3tjhig4vwvq" path="res://Collab/Scenes/HealthBar.tscn" id="4_q4mro"]
 [ext_resource type="PackedScene" uid="uid://cj2kspo4t0gh2" path="res://Collab/Scenes/rat.tscn" id="7_72pde"]
-[ext_resource type="PackedScene" uid="uid://dhotfr1kpgqc7" path="res://Collab/Scenes/coin_counter.tscn" id="7_acv23"]
+[ext_resource type="PackedScene" uid="uid://myow3mepvmi" path="res://Collab/Scenes/coin_counter.tscn" id="7_acv23"]
 [ext_resource type="PackedScene" uid="uid://dgkbqx0bb0twb" path="res://Collab/Scenes/check_point.tscn" id="9_pndye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4mro"]
