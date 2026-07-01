@@ -1,9 +1,10 @@
 extends CharacterBody2D
+class_name Player
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 var gravity = 20
-var health
+#var health
 var isAlive = true
 
 var hasDash = true
@@ -27,7 +28,7 @@ var coyoteTime = 0
 @onready var animate = $PlayerAnims
 
 func _ready():
-	health = 6
+	GlobalVar.playerHealth = 6
 	#healthBar.init_health(health)
 
 func _physics_process(delta: float) -> void:
