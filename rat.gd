@@ -5,7 +5,7 @@ class_name RatEnemy
 @onready var sprite = $AnimatedSprite2D
 
 const speed = 150
-var chasing: bool = true
+var chasing: bool = false
 
 var health
 var healthMax = 20
@@ -42,6 +42,12 @@ func _process(delta):
 	move_and_slide()
 	
 func move(delta):
+	if position.distance_to(player.position) < 200:
+		roaming = false
+		chasing = true
+	else:
+		chasing = false
+	
 	if !dead:
 		if !chasing:
 			velocity += dir * speed * delta
