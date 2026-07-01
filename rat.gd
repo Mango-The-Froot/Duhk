@@ -9,6 +9,7 @@ var currentDist = 0
 var direction = 1
 var counter = 0
 const gravity = 20
+#Onesec
 
 func _physics_process(delta: float) -> void:
 	counter += 1
