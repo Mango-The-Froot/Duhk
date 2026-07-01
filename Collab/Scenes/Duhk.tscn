@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://btrnj1de0mcld" path="res://Collab/Assets/Sprites/Tilemaps/SlopedTiles.png" id="3_sd00l"]
 [ext_resource type="PackedScene" uid="uid://cu3tjhig4vwvq" path="res://Collab/Scenes/HealthBar.tscn" id="4_q4mro"]
 [ext_resource type="PackedScene" uid="uid://cj2kspo4t0gh2" path="res://Collab/Scenes/rat.tscn" id="7_72pde"]
+[ext_resource type="PackedScene" uid="uid://dne1c41y27ym3" path="res://Collab/Scenes/label.tscn" id="7_acv23"]
 [ext_resource type="PackedScene" uid="uid://dgkbqx0bb0twb" path="res://Collab/Scenes/check_point.tscn" id="9_pndye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4mro"]
@@ -195,7 +196,11 @@ layer_2/name = "Layer2"
 layer_2/tile_data = PackedInt32Array(1703938, 524289, 8, 3276802, 1, 8, 4063246, 786433, 4, 4063254, 262145, 8, 11272240, 786433, 4, 11796512, 262145, 8, 12124198, 786433, 4, 12124206, 262145, 8, 13107237, 524289, 8, 12845100, 786433, 4, 8912928, 262145, 8, 12582964, 786433, 4, 9502772, 786433, 4)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1561518963]
+<<<<<<< HEAD
 position = Vector2(191, 324)
+=======
+position = Vector2(240, 269)
+>>>>>>> Oscar's-Branch
 script = ExtResource("1_6lmjr")
 metadata/_edit_group_ = true
 
@@ -213,6 +218,10 @@ position_smoothing_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=1729037927]
 
 [node name="HealthBar" parent="Player/CanvasLayer" unique_id=331439400 instance=ExtResource("4_q4mro")]
+
+[node name="Label" parent="Player/CanvasLayer" unique_id=1491014615 instance=ExtResource("7_acv23")]
+offset_top = 25.0
+offset_bottom = 48.0
 
 [node name="Coins" type="Node2D" parent="." unique_id=2051164883]
 
@@ -265,8 +274,16 @@ position = Vector2(298, 2116)
 color = Color(1, 1, 1, 0)
 shadow_color = Color(0.48235294, 0, 0, 0)
 
+<<<<<<< HEAD
 [node name="Rat" parent="." unique_id=1358586519 instance=ExtResource("7_72pde")]
 position = Vector2(644, 341)
 
+=======
+>>>>>>> Oscar's-Branch
 [node name="checkPoint" parent="." unique_id=1405259099 instance=ExtResource("9_pndye")]
 position = Vector2(-32, 2175)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=563912010]
+
+[node name="Rat" parent="Enemies" unique_id=1358586519 instance=ExtResource("7_72pde")]
+position = Vector2(298, 986)
