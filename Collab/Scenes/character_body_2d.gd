@@ -21,29 +21,71 @@ var hasGlide = false
 var canGlide = false
 
 var canTakeDamage = true
+var attacking: bool
+var attackType: String
 
 @onready var healthBar = $CanvasLayer/HealthBar
-@onready var playerSprite = $PlayerAnims
 @onready var animate = $PlayerAnims
 @onready var coyoteTime = $CoyoteTime
+@onready var damageZone = $PlayerDamageZone
 
 func _ready():
 	GlobalVar.playerBody = self
 	health = 60
 	healthBar.init_health(health)
+	attacking = false
 	#healthBar.init_health(health)
 
 func _physics_process(delta: float) -> void:
 	#GlobalVar.playerDamageZone = damageZone
 	GlobalVar.playerHitbox = $PlayerHitBox
+	GlobalVar.playerDamageZone = damageZone
+	GlobalVar.playerDamage = 10
+	if !attacking:
+		if Input.is_action_just_pressed("Attack"):
+			attacking = true
+			handleAttackAnim()
 	
-	if velocity.x > 0:
-		playerSprite.flip_h = true
-	if velocity.x < 0:
-		playerSprite.flip_h = false
+	var direction = Input.get_axis("Left", "Right")
+	
 	movement()
 	if hasDash:
 		dashFunc()
+	handleMovementAnimation(direction)
+
+func toggleFlipSprite(dir):
+	if dir == 1:
+		animate.flip_h = true
+		damageZone.position.x *= abs(damageZone.position.x) / damageZone.position.x
+	if dir == -1:
+		animate.flip_h = false
+		damageZone.position.x *= abs(damageZone.position.x) / damageZone.position.x * -1
+
+func handleMovementAnimation(dir):
+	toggleFlipSprite(dir)
+	if is_on_floor() && !attacking:
+		if !velocity:
+			pass #Idle
+		if velocity.x != 0:
+			animate.play("DuckWalk")
+			toggleFlipSprite(dir)
+		else:
+			animate.stop()
+	elif !is_on_floor():
+		animate.play("DuckFall")
+		
+func handleAttackAnim():
+	if attacking:
+		animate.play("DuckAttack")
+		toggleDamageCollisions()
+		
+func toggleDamageCollisions():
+	var damageZoneCollision = damageZone.get_node("CollisionShape2D")
+	var waitTime = .2
+	damageZoneCollision.disabled = false
+	await get_tree().create_timer(waitTime).timeout
+	damageZoneCollision.disabled = true
+	
 
 #Handels dashing
 func dashFunc():
@@ -76,13 +118,8 @@ func movement():
 	if direction:
 		velocity.x = direction * (SPEED + dashSpeed)
 		#Animates walk cycle only while on ground and while moving
-		if is_on_floor():
-			animate.play("DuckWalk")
-		else:
-			animate.stop()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animate.stop()
 	
 	#Handels air jumping
 	if Input.is_action_just_pressed("Jump") && !is_on_floor():
@@ -124,3 +161,8 @@ func takeDamage(damage):
 #Handels changes to the health bar
 func _set_health(value):
 	healthBar._set_health(value)
+
+
+
+func _on_player_anims_animation_finished():
+	attacking = false

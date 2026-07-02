@@ -18,7 +18,7 @@ var attacking: bool = false
 
 var dir: Vector2
 const gravity = 20
-var kBForce = -100
+var kBForce = -400
 var roaming: bool = true
 
 var player: CharacterBody2D
@@ -27,6 +27,7 @@ var playerInArea = false
 
 func _ready():
 	health = 20
+
 
 func _process(delta):
 	if !is_on_floor():
@@ -40,7 +41,7 @@ func _process(delta):
 	move(delta)
 	handleAnimation()
 	move_and_slide()
-	
+
 func move(delta):
 	if position.distance_to(player.position) < 200:
 		roaming = false

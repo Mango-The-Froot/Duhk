@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://njgt0aff5nj4"]
+
+[ext_resource type="Script" uid="uid://bkgjfc8ln68d5" path="res://Collab/Scenes/character_body_2d.gd" id="1_ecsvc"]
+[ext_resource type="Texture2D" uid="uid://dfj40udlt4wv1" path="res://Collab/Assets/Sprites/DuckAttack.png" id="2_s3dj7"]
+[ext_resource type="Texture2D" uid="uid://dect0nr6rjh2i" path="res://Collab/Assets/Sprites/DancingDuck - Copy.png" id="3_0lpl2"]
+[ext_resource type="PackedScene" uid="uid://cu3tjhig4vwvq" path="res://Collab/Scenes/HealthBar.tscn" id="4_c5k76"]
+[ext_resource type="PackedScene" uid="uid://myow3mepvmi" path="res://Collab/Scenes/coin_counter.tscn" id="5_cvvwv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyas4"]
+atlas = ExtResource("2_s3dj7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym1j4"]
+atlas = ExtResource("2_s3dj7")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvd63"]
+atlas = ExtResource("2_s3dj7")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cce6j"]
+atlas = ExtResource("2_s3dj7")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pylp"]
+atlas = ExtResource("2_s3dj7")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alt5j"]
+atlas = ExtResource("3_0lpl2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lmjr"]
+atlas = ExtResource("3_0lpl2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qiy2"]
+atlas = ExtResource("3_0lpl2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6pfy"]
+atlas = ExtResource("3_0lpl2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cgqw0"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_iyas4")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_ym1j4")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_gvd63")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_cce6j")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_6pylp")
+}],
+"loop": false,
+"name": &"DuckAttack",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"DuckDash",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"DuckFall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_alt5j")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6lmjr")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_8qiy2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_v6pfy")
+}],
+"loop": true,
+"name": &"DuckWalk",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alt5j"]
+size = Vector2(36, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acv23"]
+size = Vector2(43, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf32a"]
+size = Vector2(20, 44)
+
+[node name="Player" type="CharacterBody2D" unique_id=418614026]
+script = ExtResource("1_ecsvc")
+
+[node name="PlayerAnims" type="AnimatedSprite2D" parent="." unique_id=863206596]
+sprite_frames = SubResource("SpriteFrames_cgqw0")
+animation = &"DuckAttack"
+frame = 4
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1532855043]
+position = Vector2(-2, 3)
+shape = SubResource("RectangleShape2D_alt5j")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1629461762]
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1322705074]
+
+[node name="HealthBar" parent="CanvasLayer" unique_id=331439400 instance=ExtResource("4_c5k76")]
+value = 100.0
+
+[node name="CoinCounter" parent="CanvasLayer" unique_id=1468149157 instance=ExtResource("5_cvvwv")]
+offset_top = 25.0
+offset_bottom = 25.0
+
+[node name="PlayerHitBox" type="Area2D" parent="." unique_id=629517454]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox" unique_id=1641297339]
+position = Vector2(-2, 3)
+shape = SubResource("RectangleShape2D_acv23")
+
+[node name="PlayerDamageZone" type="Area2D" parent="." unique_id=1380867296]
+position = Vector2(-40.155, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDamageZone" unique_id=776125271]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_yf32a")
+
+[connection signal="animation_finished" from="PlayerAnims" to="." method="_on_player_anims_animation_finished"]
