@@ -181,6 +181,7 @@ func takeDamage(damage):
 #Handels changes to the health bar
 func _set_health(value):
 	healthBar._set_health(value)
+	health = value
 
 
 
