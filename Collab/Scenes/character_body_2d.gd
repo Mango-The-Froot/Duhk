@@ -193,13 +193,15 @@ func _on_player_anims_animation_finished():
 	attacking = false
 
 
-func _on_unlock_dash_area_entered(area: Area2D) -> void:
-	hasDash = true
-
-
-func _on_unlock_jump_area_entered(area: Area2D) -> void:
-	hasFlap = true
 
 
 func _on_teleporter_area_entered(area: Area2D) -> void:
 	global_position = GlobalVar.lastZone.global_position
+
+func _on_unlock_jump_body_entered(body: Node2D) -> void:
+	if body == GlobalVar.playerBody:
+		hasFlap = true
+
+func _on_unlock_dash_body_entered(body: Node2D) -> void:
+	if body == GlobalVar.playerBody:
+		hasDash = true

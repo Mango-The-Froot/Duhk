@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cu1jfrcw8l312"]
 
 [ext_resource type="Script" uid="uid://bdurcp6qx2f7n" path="res://button.gd" id="1_t2cd7"]
+[ext_resource type="AudioStream" uid="uid://cb7w3d6xeixdd" path="res://Collab/Assets/SFX/carnivalrides.ogg" id="2_y2thl"]
 
 [node name="Control" type="Control" unique_id=1268491481]
 layout_mode = 3
@@ -37,5 +38,10 @@ script = ExtResource("1_t2cd7")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1053175217]
 position = Vector2(123, -42)
 zoom = Vector2(2, 2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=967999672]
+stream = ExtResource("2_y2thl")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
