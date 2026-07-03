@@ -4,7 +4,7 @@ class_name BossRat
 
 @onready var sprite = $AnimatedSprite2D
 
-const speed = 150
+const speed = 100
 var chasing: bool = false
 
 var health
@@ -26,7 +26,8 @@ var playerInArea = false
 
 
 func _ready():
-	health = 20
+	health = 20 * scale.x
+	attack = 5 * scale.x / 2
 
 
 func _process(delta):
@@ -45,11 +46,12 @@ func _process(delta):
 	move_and_slide()
 
 func move(delta):
-	if position.distance_to(player.position) < 200:
+	if position.distance_to(player.position) < 400:
 		roaming = false
 		chasing = true
 	else:
 		chasing = false
+		roaming = true
 	
 	if !dead:
 		if !chasing:

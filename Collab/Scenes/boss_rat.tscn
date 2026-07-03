@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bystk6pfe4j3q"]
+
+[ext_resource type="Script" uid="uid://6ljmuvfssjqg" path="res://boss_rat.gd" id="1_5qvto"]
+[ext_resource type="Texture2D" uid="uid://dc4biayh0f3sg" path="res://Collab/Assets/Sprites/RAT_RUNNING.png" id="2_f8ox3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaikp"]
+atlas = ExtResource("2_f8ox3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiaum"]
+atlas = ExtResource("2_f8ox3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j1ng"]
+atlas = ExtResource("2_f8ox3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e813m"]
+atlas = ExtResource("2_f8ox3")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h0t04"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_uaikp")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tiaum")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_5j1ng")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_e813m")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdktn"]
+size = Vector2(62, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvtln"]
+size = Vector2(66, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rheu5"]
+size = Vector2(70, 29)
+
+[node name="BossRat" type="CharacterBody2D" unique_id=521043700]
+script = ExtResource("1_5qvto")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=64446349]
+sprite_frames = SubResource("SpriteFrames_h0t04")
+animation = &"Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=13702014]
+z_as_relative = false
+position = Vector2(0, 20.5)
+shape = SubResource("RectangleShape2D_qdktn")
+
+[node name="Direction" type="Timer" parent="." unique_id=80093788]
+autostart = true
+
+[node name="RatHitBox" type="Area2D" parent="." unique_id=56529806]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RatHitBox" unique_id=1080290511]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_vvtln")
+
+[node name="BossRatDamageZone" type="Area2D" parent="." unique_id=411082102]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossRatDamageZone" unique_id=2139761074]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_rheu5")
