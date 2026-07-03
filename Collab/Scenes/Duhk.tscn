@@ -244,11 +244,7 @@ position = Vector2(441, 837)
 position = Vector2(3287, 3272)
 
 [node name="SewerRat2" parent="Enemies" unique_id=1332162595 instance=ExtResource("7_72pde")]
-position = Vector2(1427.9999, 1253)
-scale = Vector2(4.64, 4.64)
-
-[node name="SewerRat5" parent="Enemies" unique_id=818881793 instance=ExtResource("7_72pde")]
-position = Vector2(1427.9999, 1253)
+position = Vector2(1428, 1252.9999)
 scale = Vector2(4.64, 4.64)
 
 [node name="SewerRat3" parent="Enemies" unique_id=474961873 instance=ExtResource("7_72pde")]
