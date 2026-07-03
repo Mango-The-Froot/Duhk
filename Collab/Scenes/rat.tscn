@@ -71,6 +71,7 @@ sprite_frames = SubResource("SpriteFrames_cbis5")
 animation = &"Attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1006462704]
+z_as_relative = false
 position = Vector2(0, 20.5)
 shape = SubResource("RectangleShape2D_fv5hn")
 

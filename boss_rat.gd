@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name RatEnemy
+class_name BossRat
 
 @onready var sprite = $AnimatedSprite2D
 
@@ -8,12 +8,12 @@ const speed = 150
 var chasing: bool = false
 
 var health
-var healthMax = 20
+var healthMax = 100
 var healthMin = 0
 
 var dead: bool = false
 var damaged: bool = false
-var attack
+var attack = 2
 var attacking: bool = false
 
 var dir: Vector2
@@ -26,8 +26,7 @@ var playerInArea = false
 
 
 func _ready():
-	health = 20 * scale.x
-	attack = 5 * (scale.x / 2)
+	health = 20
 
 
 func _process(delta):
@@ -36,21 +35,17 @@ func _process(delta):
 		velocity.x = 0
 		
 	player = GlobalVar.playerBody
-	GlobalVar.ratDamageZone = $ratDamageZone
-	GlobalVar.ratDamage = attack
+	GlobalVar.bossRatDmgZone = $BossRatDamageZone
+	GlobalVar.bossRatDmg = attack
 	if health <= 0:
 		dead = true
-	
-	if damaged:
-		var KBDir = position.direction_to(player.position) * kBForce
-		velocity.x = KBDir.x
 	
 	move(delta)
 	handleAnimation()
 	move_and_slide()
 
 func move(delta):
-	if position.distance_to(player.position) < 200 || scale.x > 1:
+	if position.distance_to(player.position) < 200:
 		roaming = false
 		chasing = true
 	else:
@@ -63,7 +58,8 @@ func move(delta):
 			var playerDir = position.direction_to(player.position) * speed
 			velocity.x = playerDir.x
 		elif damaged:
-			pass
+			var KBDir = position.direction_to(player.position) * kBForce
+			velocity.x = KBDir.x
 		roaming = true
 	elif dead:
 		velocity.x = 0

@@ -1,19 +1,22 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
+var deaths = 0
+
+const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
 var gravity = 20
 var health
+var maxHealth
 var isAlive = true
 
-var hasDash = true
+var hasDash = false
 var tween: Tween
 const dash = 800.0
 var dashSpeed = 0.0
 var dashCD = 60
 var dashCDTimer = 0
 
-var hasFlap = true
+var hasFlap = false
 var feathers = 1
 var maxFeathers = 1
 
@@ -24,14 +27,17 @@ var canTakeDamage = true
 var attacking: bool
 var attackType: String
 
+var coyoteTime = 0
+var isCoyote = true
+
 @onready var healthBar = $CanvasLayer/HealthBar
 @onready var animate = $PlayerAnims
-@onready var coyoteTime = $CoyoteTime
 @onready var damageZone = $PlayerDamageZone
 
 func _ready():
 	GlobalVar.playerBody = self
 	health = 60
+	maxHealth = health
 	healthBar.init_health(health)
 	attacking = false
 	#healthBar.init_health(health)
@@ -48,9 +54,21 @@ func _physics_process(delta: float) -> void:
 	
 	var direction = Input.get_axis("Left", "Right")
 	
+	if health <= 0:
+		if deaths < 1:
+			deaths += 1
+			global_position = GlobalVar.nextZone.global_position
+			_set_health(maxHealth)
+	
 	movement()
 	if hasDash:
 		dashFunc()
+	
+	if hasFlap:
+		isCoyote = false	
+	
+	print(coyoteTime)
+	
 	handleMovementAnimation(direction)
 
 func toggleFlipSprite(dir):
@@ -105,9 +123,13 @@ func movement():
 	# Add the gravity.
 	if !is_on_floor():
 		velocity.y += gravity
+		coyoteTime -= 1
+	else:
+		if isCoyote:
+			coyoteTime = 10
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") && is_on_floor():
+	if Input.is_action_just_pressed("Jump") && (is_on_floor() || coyoteTime > 0):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -166,3 +188,11 @@ func _set_health(value):
 
 func _on_player_anims_animation_finished():
 	attacking = false
+
+
+func _on_unlock_dash_area_entered(area: Area2D) -> void:
+	hasDash = true
+
+
+func _on_unlock_jump_area_entered(area: Area2D) -> void:
+	hasFlap = true

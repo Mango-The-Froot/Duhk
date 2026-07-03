@@ -6,7 +6,12 @@ var playerDamageZone: Area2D
 var playerHealth
 var playerHitbox: Area2D
 
+var bossRatDmgZone: Area2D
+var bossRatDmg: int
+
 var ratDamageZone: Area2D
 var ratDamage: int
+
+var nextZone: Marker2D
 
 var money: int = 0

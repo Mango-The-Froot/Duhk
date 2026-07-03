@@ -99,7 +99,7 @@ size = Vector2(36, 50)
 size = Vector2(43, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf32a"]
-size = Vector2(20, 44)
+size = Vector2(31, 44)
 
 [node name="Player" type="CharacterBody2D" unique_id=418614026]
 script = ExtResource("1_ecsvc")
@@ -136,7 +136,8 @@ shape = SubResource("RectangleShape2D_acv23")
 position = Vector2(-40.155, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDamageZone" unique_id=776125271]
-position = Vector2(0, 1)
+position = Vector2(-4.345001, 0)
 shape = SubResource("RectangleShape2D_yf32a")
+disabled = true
 
 [connection signal="animation_finished" from="PlayerAnims" to="." method="_on_player_anims_animation_finished"]
