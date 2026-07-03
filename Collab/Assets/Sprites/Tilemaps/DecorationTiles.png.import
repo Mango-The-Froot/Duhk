@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwbfigpy88acs"
-path="res://.godot/imported/Airport tiles_Large.png-68fb2d2e51be717e3a10cc3604e2d2ca.ctex"
+uid="uid://c0r14esjlisri"
+path="res://.godot/imported/DecorationTiles.png-6dc0d8535d737ee5c13cde4873a2fe8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Collab/Assets/Sprites/Tilemaps/Airport tiles_Large.png"
-dest_files=["res://.godot/imported/Airport tiles_Large.png-68fb2d2e51be717e3a10cc3604e2d2ca.ctex"]
+source_file="res://Collab/Assets/Sprites/Tilemaps/DecorationTiles.png"
+dest_files=["res://.godot/imported/DecorationTiles.png-6dc0d8535d737ee5c13cde4873a2fe8f.ctex"]
 
 [params]
 
