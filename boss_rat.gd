@@ -26,7 +26,7 @@ var playerInArea = false
 
 
 func _ready():
-	health = 20 * scale.x
+	health = 100
 	attack = 5 * scale.x / 2
 
 
@@ -60,7 +60,7 @@ func move(delta):
 			var playerDir = position.direction_to(player.position) * speed
 			velocity.x = playerDir.x
 		elif damaged:
-			var KBDir = position.direction_to(player.position) * kBForce
+			var KBDir = position.direction_to(player.position) * kBForce * 10
 			velocity.x = KBDir.x
 		roaming = true
 	elif dead:
@@ -74,7 +74,7 @@ func handleAnimation():
 			sprite.flip_h = true
 		if velocity.x < 0:
 			sprite.flip_h = false
-	elif !dead && damaged && !attacking:
+	elif !dead && damaged:
 		animSprite.play("Hurt")
 		await get_tree().create_timer(.8)
 		damaged = false
@@ -102,19 +102,21 @@ func choose(array):
 func _set_health(value):
 	$healthBar._set_health(value)
 
-
-func _on_rat_hit_box_area_entered(area):
+func _on_boss_rat_hit_box_area_entered(area):
 	var damage = GlobalVar.playerDamage
 	if area == GlobalVar.playerDamageZone:
-		takeDamage(damage)
+		takeDamage(damage)	
 
 func takeDamage(damage):
 	health -= damage
 	damaged = true
 	if health <= healthMin:
-		health = healthMin
-		dead = true
-	print(str(self), health)
+		if GlobalVar.playerDeaths > 0:
+			health = healthMin
+			dead = true
+		else:
+			health = healthMax
+	#print(str(self), health)
 
 
 func _on_rat_damage_zone_area_entered(area):

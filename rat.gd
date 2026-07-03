@@ -71,22 +71,22 @@ func move(delta):
 func handleAnimation():
 	var animSprite = $AnimatedSprite2D
 	if !dead && !damaged && !attacking:
-		animSprite.play("Walk")
+		sprite.play("Walk")
 		if velocity.x > 0:
 			sprite.flip_h = true
 		if velocity.x < 0:
 			sprite.flip_h = false
-	elif !dead && damaged && !attacking:
+	elif !dead && damaged:
 		animSprite.play("Hurt")
 		await get_tree().create_timer(.8)
 		damaged = false
 	elif dead && !roaming:
 		roaming = false
-		animSprite.play("Death")
+		sprite.play("Death")
 		await get_tree().create_timer(1.0).timeout
 		handleDeath()
 	elif !dead && attacking:
-		animSprite.play("Attack")
+		sprite.play("Attack")
 
 func handleDeath():
 	self.queue_free()
@@ -116,7 +116,7 @@ func takeDamage(damage):
 	if health <= healthMin:
 		health = healthMin
 		dead = true
-	print(str(self), health)
+	#print(str(self), health)
 
 
 func _on_rat_damage_zone_area_entered(area):

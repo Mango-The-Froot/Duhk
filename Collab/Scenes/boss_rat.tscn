@@ -2,6 +2,23 @@
 
 [ext_resource type="Script" uid="uid://6ljmuvfssjqg" path="res://boss_rat.gd" id="1_5qvto"]
 [ext_resource type="Texture2D" uid="uid://dc4biayh0f3sg" path="res://Collab/Assets/Sprites/RAT_RUNNING.png" id="2_f8ox3"]
+[ext_resource type="Texture2D" uid="uid://bfdfp3jt7dkun" path="res://Collab/Assets/Sprites/Tilemaps/RatDamage.png" id="2_h0t04"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8ox3"]
+atlas = ExtResource("2_h0t04")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0t04"]
+atlas = ExtResource("2_h0t04")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdktn"]
+atlas = ExtResource("2_h0t04")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvtln"]
+atlas = ExtResource("2_h0t04")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uaikp"]
 atlas = ExtResource("2_f8ox3")
@@ -31,7 +48,19 @@ animations = [{
 "name": &"Death",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8ox3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0t04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdktn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvtln")
+}],
 "loop": true,
 "name": &"Hurt",
 "speed": 5.0
@@ -61,14 +90,14 @@ size = Vector2(62, 23)
 size = Vector2(66, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rheu5"]
-size = Vector2(70, 29)
+size = Vector2(70, 27)
 
 [node name="BossRat" type="CharacterBody2D" unique_id=521043700]
 script = ExtResource("1_5qvto")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=64446349]
 sprite_frames = SubResource("SpriteFrames_h0t04")
-animation = &"Walk"
+animation = &"Hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=13702014]
 z_as_relative = false
@@ -78,14 +107,16 @@ shape = SubResource("RectangleShape2D_qdktn")
 [node name="Direction" type="Timer" parent="." unique_id=80093788]
 autostart = true
 
-[node name="RatHitBox" type="Area2D" parent="." unique_id=56529806]
+[node name="BossRatHitBox" type="Area2D" parent="." unique_id=56529806]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RatHitBox" unique_id=1080290511]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossRatHitBox" unique_id=1080290511]
 position = Vector2(0, 18)
 shape = SubResource("RectangleShape2D_vvtln")
 
 [node name="BossRatDamageZone" type="Area2D" parent="." unique_id=411082102]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossRatDamageZone" unique_id=2139761074]
-position = Vector2(0, 16.5)
+position = Vector2(0, 17.5)
 shape = SubResource("RectangleShape2D_rheu5")
+
+[connection signal="area_entered" from="BossRatHitBox" to="." method="_on_boss_rat_hit_box_area_entered"]

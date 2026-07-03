@@ -2,6 +2,23 @@
 
 [ext_resource type="Script" uid="uid://dpdpxthtyns6o" path="res://rat.gd" id="1_r77tc"]
 [ext_resource type="Texture2D" uid="uid://dc4biayh0f3sg" path="res://Collab/Assets/Sprites/RAT_RUNNING.png" id="2_u7ovg"]
+[ext_resource type="Texture2D" uid="uid://bfdfp3jt7dkun" path="res://Collab/Assets/Sprites/Tilemaps/RatDamage.png" id="2_uaikp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbis5"]
+atlas = ExtResource("2_uaikp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv5hn"]
+atlas = ExtResource("2_uaikp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb1n4"]
+atlas = ExtResource("2_uaikp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fimd7"]
+atlas = ExtResource("2_uaikp")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uaikp"]
 atlas = ExtResource("2_u7ovg")
@@ -31,7 +48,19 @@ animations = [{
 "name": &"Death",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbis5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv5hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qb1n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fimd7")
+}],
 "loop": true,
 "name": &"Hurt",
 "speed": 5.0
@@ -68,7 +97,7 @@ script = ExtResource("1_r77tc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1836821039]
 sprite_frames = SubResource("SpriteFrames_cbis5")
-animation = &"Attack"
+animation = &"Hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1006462704]
 z_as_relative = false

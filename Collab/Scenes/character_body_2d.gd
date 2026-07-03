@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 	GlobalVar.playerHitbox = $PlayerHitBox
 	GlobalVar.playerDamageZone = damageZone
 	GlobalVar.playerDamage = 10
+	GlobalVar.playerDeaths = deaths
 	if !attacking:
 		if Input.is_action_just_pressed("Attack"):
 			attacking = true
@@ -188,6 +189,7 @@ func _set_health(value):
 
 
 func _on_player_anims_animation_finished():
+	await get_tree().create_timer(.5).timeout
 	attacking = false
 
 

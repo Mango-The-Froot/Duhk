@@ -5,6 +5,7 @@ var playerDamage: int
 var playerDamageZone: Area2D
 var playerHealth
 var playerHitbox: Area2D
+var playerDeaths
 
 var bossRatDmgZone: Area2D
 var bossRatDmg: int
