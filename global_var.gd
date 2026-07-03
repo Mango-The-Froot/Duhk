@@ -13,5 +13,6 @@ var ratDamageZone: Area2D
 var ratDamage: int
 
 var nextZone: Marker2D
+var lastZone: Marker2D
 
 var money: int = 0

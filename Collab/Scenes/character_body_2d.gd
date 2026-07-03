@@ -67,8 +67,6 @@ func _physics_process(delta: float) -> void:
 	if hasFlap:
 		isCoyote = false	
 	
-	print(coyoteTime)
-	
 	handleMovementAnimation(direction)
 
 func toggleFlipSprite(dir):
@@ -196,3 +194,7 @@ func _on_unlock_dash_area_entered(area: Area2D) -> void:
 
 func _on_unlock_jump_area_entered(area: Area2D) -> void:
 	hasFlap = true
+
+
+func _on_teleporter_area_entered(area: Area2D) -> void:
+	global_position = GlobalVar.lastZone.global_position
