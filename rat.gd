@@ -4,7 +4,7 @@ class_name RatEnemy
 
 @onready var sprite = $AnimatedSprite2D
 
-const speed = 150
+var speed = 150 * (self.scale.x)
 var chasing: bool = false
 
 var health
@@ -27,7 +27,7 @@ var playerInArea = false
 
 func _ready():
 	health = 20 * scale.x
-	attack = 5 * (scale.x / 2)
+	attack = 2
 
 
 func _process(delta):

@@ -162,6 +162,8 @@ func checkHitbox():
 		var hitbox = hitboxAreas.front()
 		if hitbox.get_parent() is RatEnemy:
 			damage = GlobalVar.ratDamage
+		elif hitbox.get_parent() is BossRat:
+			damage = GlobalVar.bossRatDmg
 		if canTakeDamage:
 			takeDamage(damage)
 
